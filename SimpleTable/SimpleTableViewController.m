@@ -33,7 +33,7 @@
 
 - (void)viewDidLoad
 {
-    demofriend = @"Max";
+    demofriend = @"Jerry";
     [super viewDidLoad];
     locationManager = [[CLLocationManager alloc]init]; // initializing locationManager
     locationManager.delegate = self; // we set the delegate of locationManager to self.
@@ -55,37 +55,7 @@
         users = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
         NSString *ret = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         
-//        for (NSString* user in users) {
-//            if (user != demofriend) {
-//                id userObject = [users objectForKey:user];
-//                NSLog(users[demofriend][@"lat"]);
-//                NSLog(userObject[@"lat"]);
-//                if (userObject[@"lat"] == 0 ||
-//                    (users[demofriend][@"lat"] == userObject[@"lat"] &&
-//                     users[demofriend][@"lon"] == userObject[@"lon"])) {
-//                        [closeUsers addObject:user];
-//                    }
-//            }
-//        }
-
-        
         dispatch_async(dispatch_get_main_queue(), ^{
-            //NSLog(@"Initial Get, Dispatch returned:");
-            //NSLog(@"%@", ret);
-            
-            //Now that we got the users, are we close to them?
-//            for (NSString* user in users) {
-//                    if (user != demofriend) {
-//                        id userObject = [users objectForKey:user];
-//                        if (userObject[@"lat"] == 0 ||
-//                                (users[demofriend][@"lat"] == userObject[@"lat"] &&
-//                                 users[demofriend][@"lon"] == userObject[@"lon"])) {
-//                            [closeUsers addObject:user];
-//                        }
-//                    }
-//            }
-            
-            
             [self.tableView reloadData];
         });
     });
@@ -123,7 +93,7 @@
     NSURL *url = [NSURL URLWithString:myUrl];
     dispatch_queue_t q = dispatch_queue_create("label", NULL);
     dispatch_async(q, ^{
-        NSLog(@"Dispatch Posting Location");
+        //NSLog(@"Dispatch Posting Location");
         NSData *data = [NSData dataWithContentsOfURL:url];
         NSString *ret = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -173,13 +143,13 @@
     
     bool isclose = ([users[demofriend][@"lat"] doubleValue] == [userObject[@"lat"] doubleValue] &&
                     [users[demofriend][@"lon"] doubleValue] == [userObject[@"lon"] doubleValue]);
-    NSLog(@"DBG");
-    NSLog(users[demofriend][@"lat"]);
-    NSLog(users[demofriend][@"lon"]);
-    NSString *debug = [userObject valueForKey: @"lat"];
-    NSString *debug2 = [userObject valueForKey: @"lon"];
-    NSLog([debug description]);
-    NSLog([debug2 description]);
+    //NSLog(@"DBG");
+    //NSLog(users[demofriend][@"lat"]);
+    //NSLog(users[demofriend][@"lon"]);
+    //NSString *debug = [userObject valueForKey: @"lat"];
+    //NSString *debug2 = [userObject valueForKey: @"lon"];
+    //NSLog([debug description]);
+    //NSLog([debug2 description]);
     
     if (isclose) {
         if ([[userObject valueForKey:@"status"] isEqual: @"free"]) {
@@ -243,6 +213,22 @@
     });
 
     
+}
+- (IBAction)refreshButton:(id)sender {
+    NSLog(@"button clicked");
+    NSString *myUrl = [NSString stringWithFormat: @"https://squadhub.azurewebsites.net/allusers"];
+    NSURL *url = [NSURL URLWithString:myUrl];
+    dispatch_queue_t q = dispatch_queue_create("label", NULL);
+    dispatch_async(q, ^{
+        
+        NSData *data = [NSData dataWithContentsOfURL:url];
+        users = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+        NSString *ret = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView reloadData];
+        });
+    });
 }
 
 

@@ -29,7 +29,7 @@
                                 </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="gYX-iE-8Ij">
-                                <rect key="frame" x="0.0" y="82" width="320" height="486"/>
+                                <rect key="frame" x="0.0" y="100" width="320" height="442"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="vXZ-lx-hvc" id="ufM-7w-nKg"/>
@@ -37,20 +37,27 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="My Friends" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KiM-7C-r0i">
-                                <rect key="frame" x="20" y="53" width="95" height="21"/>
+                                <rect key="frame" x="9" y="58" width="95" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="skn-nj-Ke2">
-                                <rect key="frame" x="286" y="53" width="28" height="26"/>
+                                <rect key="frame" x="280" y="56" width="28" height="26"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bzS-2s-MW6">
+                                <rect key="frame" x="0.0" y="52" width="320" height="34"/>
+                                <connections>
+                                    <action selector="refreshButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="8Z3-0S-QgY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="freeButtons" destination="uhx-ZT-jj4" id="kPd-uy-xAh"/>
                         <outlet property="myStatus" destination="skn-nj-Ke2" id="Ese-vb-CDq"/>
+                        <outlet property="refreshButton" destination="bzS-2s-MW6" id="6iC-tQ-nP6"/>
                         <outlet property="tableView" destination="gYX-iE-8Ij" id="8zP-ut-Xli"/>
                     </connections>
                 </viewController>
