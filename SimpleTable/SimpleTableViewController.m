@@ -211,14 +211,17 @@
         case 0:
             NSLog(@"case 0");
             newstatus = @"free";
+            self.myStatus.image = [UIImage imageNamed: @"blue_circle.jpg"];
             break;
         case 1:
             NSLog(@"case 1");
             newstatus = @"sorta";
+            self.myStatus.image = [UIImage imageNamed: @"yellow_circle.jpg"];
             break;
         case 2:
             NSLog(@"case 2");
             newstatus = @"busy";
+            self.myStatus.image = [UIImage imageNamed: @"red_circle.jpg"];
             break;
         default:
             NSLog(@"default");

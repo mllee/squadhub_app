@@ -19,6 +19,7 @@
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *freeButtons;
+@property (weak, nonatomic) IBOutlet UIImageView *myStatus;
 
 
 @end

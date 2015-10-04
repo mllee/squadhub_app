@@ -12,6 +12,9 @@
 		C95690CC1BBFC23F0013D1ED /* person_yellow.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C95690CB1BBFC23F0013D1ED /* person_yellow.jpg */; settings = {ASSET_TAGS = (); }; };
 		C95690CE1BC0B7C90013D1ED /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C95690CD1BC0B7C90013D1ED /* CoreLocation.framework */; };
 		C95690D01BC100CD0013D1ED /* person_gray.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C95690CF1BC100CD0013D1ED /* person_gray.jpg */; settings = {ASSET_TAGS = (); }; };
+		C95690D81BC126CA0013D1ED /* blue_circle.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C95690D71BC126CA0013D1ED /* blue_circle.jpg */; settings = {ASSET_TAGS = (); }; };
+		C95690DA1BC126CF0013D1ED /* red_circle.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C95690D91BC126CF0013D1ED /* red_circle.jpg */; settings = {ASSET_TAGS = (); }; };
+		C95690DC1BC126D30013D1ED /* yellow_circle.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C95690DB1BC126D30013D1ED /* yellow_circle.jpg */; settings = {ASSET_TAGS = (); }; };
 		F41C805C184B15C6002AE0A3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F41C805B184B15C6002AE0A3 /* Foundation.framework */; };
 		F41C805E184B15C6002AE0A3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F41C805D184B15C6002AE0A3 /* CoreGraphics.framework */; };
 		F41C8060184B15C6002AE0A3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F41C805F184B15C6002AE0A3 /* UIKit.framework */; };
@@ -45,6 +48,9 @@
 		C95690CB1BBFC23F0013D1ED /* person_yellow.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = person_yellow.jpg; sourceTree = "<group>"; };
 		C95690CD1BC0B7C90013D1ED /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		C95690CF1BC100CD0013D1ED /* person_gray.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = person_gray.jpg; sourceTree = "<group>"; };
+		C95690D71BC126CA0013D1ED /* blue_circle.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blue_circle.jpg; sourceTree = "<group>"; };
+		C95690D91BC126CF0013D1ED /* red_circle.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = red_circle.jpg; sourceTree = "<group>"; };
+		C95690DB1BC126D30013D1ED /* yellow_circle.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yellow_circle.jpg; sourceTree = "<group>"; };
 		F41C8058184B15C6002AE0A3 /* SimpleTable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleTable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F41C805B184B15C6002AE0A3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F41C805D184B15C6002AE0A3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -126,6 +132,9 @@
 		F41C8061184B15C6002AE0A3 /* SimpleTable */ = {
 			isa = PBXGroup;
 			children = (
+				C95690D71BC126CA0013D1ED /* blue_circle.jpg */,
+				C95690D91BC126CF0013D1ED /* red_circle.jpg */,
+				C95690DB1BC126D30013D1ED /* yellow_circle.jpg */,
 				C95690CF1BC100CD0013D1ED /* person_gray.jpg */,
 				C95690CB1BBFC23F0013D1ED /* person_yellow.jpg */,
 				C95690C91BBFC23B0013D1ED /* person_red.jpg */,
@@ -251,12 +260,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C95690D81BC126CA0013D1ED /* blue_circle.jpg in Resources */,
 				C95690CC1BBFC23F0013D1ED /* person_yellow.jpg in Resources */,
 				F41C8074184B15C6002AE0A3 /* Images.xcassets in Resources */,
 				F41C8094184B32CA002AE0A3 /* creme_brelee.jpg in Resources */,
 				C95690CA1BBFC23B0013D1ED /* person_red.jpg in Resources */,
+				C95690DC1BC126D30013D1ED /* yellow_circle.jpg in Resources */,
 				C95690C81BBFB7080013D1ED /* person_blue.jpg in Resources */,
 				F41C8066184B15C6002AE0A3 /* InfoPlist.strings in Resources */,
+				C95690DA1BC126CF0013D1ED /* red_circle.jpg in Resources */,
 				F41C806F184B15C6002AE0A3 /* Main.storyboard in Resources */,
 				C95690D01BC100CD0013D1ED /* person_gray.jpg in Resources */,
 			);
