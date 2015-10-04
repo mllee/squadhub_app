@@ -16,9 +16,9 @@
 
 
 @interface SimpleTableViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate>
-@property (weak, nonatomic) IBOutlet UIImageView *myStatus;
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *freeButtons;
+
 
 @end

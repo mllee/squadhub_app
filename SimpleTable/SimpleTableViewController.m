@@ -29,12 +29,10 @@
     NSString *demofriend;
     CLLocationManager *locationManager;
     NSMutableSet *closeUsers;
-    bool startup;
 }
 
 - (void)viewDidLoad
 {
-    startup = true;
     demofriend = @"Max";
     [super viewDidLoad];
     locationManager = [[CLLocationManager alloc]init]; // initializing locationManager
@@ -57,21 +55,42 @@
         users = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
         NSString *ret = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         
+//        for (NSString* user in users) {
+//            if (user != demofriend) {
+//                id userObject = [users objectForKey:user];
+//                NSLog(users[demofriend][@"lat"]);
+//                NSLog(userObject[@"lat"]);
+//                if (userObject[@"lat"] == 0 ||
+//                    (users[demofriend][@"lat"] == userObject[@"lat"] &&
+//                     users[demofriend][@"lon"] == userObject[@"lon"])) {
+//                        [closeUsers addObject:user];
+//                    }
+//            }
+//        }
+
+        
         dispatch_async(dispatch_get_main_queue(), ^{
+            //NSLog(@"Initial Get, Dispatch returned:");
+            //NSLog(@"%@", ret);
+            
+            //Now that we got the users, are we close to them?
+//            for (NSString* user in users) {
+//                    if (user != demofriend) {
+//                        id userObject = [users objectForKey:user];
+//                        if (userObject[@"lat"] == 0 ||
+//                                (users[demofriend][@"lat"] == userObject[@"lat"] &&
+//                                 users[demofriend][@"lon"] == userObject[@"lon"])) {
+//                            [closeUsers addObject:user];
+//                        }
+//                    }
+//            }
+            
+            
             [self.tableView reloadData];
         });
     });
     
-//    NSTimer *myTimer = [NSTimer scheduledTimerWithTimeInterval:1
-//                                                        target:self
-//                                                      selector:nil
-//                                                      userInfo:nil
-//                                                       repeats:YES];
     NSLog(@"viewDidLoad");
-}
-
-- (void) updateLabel {
-    [self.tableView reloadData];
 }
 
 // location methods
@@ -102,16 +121,12 @@
     NSString *myUrl = [NSString stringWithFormat: @"https://squadhub.azurewebsites.net/user/%@/%@/%@/%@",
                        demofriend, userStatus,latitude,longitude];
     NSURL *url = [NSURL URLWithString:myUrl];
-    dispatch_queue_t q2 = dispatch_queue_create("label", NULL);
-    dispatch_async(q2, ^{
-        
+    dispatch_queue_t q = dispatch_queue_create("label", NULL);
+    dispatch_async(q, ^{
+        NSLog(@"Dispatch Posting Location");
         NSData *data = [NSData dataWithContentsOfURL:url];
-        users = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
         NSString *ret = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-        
         dispatch_async(dispatch_get_main_queue(), ^{
-            
-            
             [self.tableView reloadData];
         });
     });
@@ -127,59 +142,21 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    //return [users count];
-    return 6;
+    NSString *myUrl = [NSString stringWithFormat: @"https://squadhub.azurewebsites.net/allusers"];
+    NSURL *url = [NSURL URLWithString:myUrl];
+    dispatch_queue_t q = dispatch_queue_create("label", NULL);
+    dispatch_async(q, ^{
+        
+        NSData *data = [NSData dataWithContentsOfURL:url];
+        users = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+        //NSString *ret = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+
+    });
+    return [users count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    //NSLog(@"cellrow");
-//    static NSString *simpleTableIdentifier = @"SimpleTableCell";
-//    
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-//    
-//    //hack
-//    if (startup) {
-//        while (users == nil) {
-//        
-//        }
-//        startup = false;
-//    }
-//    
-//    if (cell == nil) {
-//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
-//    }
-//    
-//    NSArray *userkeys = [users allKeys];
-//    NSString *username = [userkeys objectAtIndex:indexPath.row];
-//    cell.textLabel.text = username;
-//    NSLog(username);
-//    NSLog(users[username][@"status"]);
-//    NSMutableDictionary *userObject = [users valueForKeyPath: username];
-//    
-//    bool isclose = ([users[demofriend][@"lat"] doubleValue] == [userObject[@"lat"] doubleValue] &&
-//                    [users[demofriend][@"lon"] doubleValue] == [userObject[@"lon"] doubleValue]);
-//
-//    
-//    if (isclose) {
-//        if ([[userObject valueForKey:@"status"] isEqual: @"free"]) {
-//            cell.imageView.image = [UIImage imageNamed:@"person_blue.jpg"];
-//        }
-//        else if ([[userObject valueForKey:@"status"] isEqual: @"busy"]) {
-//            cell.imageView.image = [UIImage imageNamed:@"person_red.jpg"];
-//        }
-//        else {
-//            cell.imageView.image = [UIImage imageNamed:@"person_yellow.jpg"];
-//        }
-//    }
-//    else {
-//        cell.imageView.image = [UIImage imageNamed:@"person_gray.jpg"];
-//        cell.textLabel.enabled = NO;
-//    }
-//        
-//    
-//    
-//    return cell;
     static NSString *simpleTableIdentifier = @"SimpleTableCell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
@@ -219,7 +196,7 @@
         cell.imageView.image = [UIImage imageNamed:@"person_gray.jpg"];
         cell.textLabel.enabled = NO;
     }
-    
+        
     
     
     return cell;
@@ -234,17 +211,14 @@
         case 0:
             NSLog(@"case 0");
             newstatus = @"free";
-            self.myStatus.image =[UIImage imageNamed: @"blue_circle.jpg"];
             break;
         case 1:
             NSLog(@"case 1");
             newstatus = @"sorta";
-            self.myStatus.image =[UIImage imageNamed: @"yellow_circle.jpg"];
             break;
         case 2:
             NSLog(@"case 2");
             newstatus = @"busy";
-            self.myStatus.image =[UIImage imageNamed: @"red_circle.jpg"];
             break;
         default:
             NSLog(@"default");
@@ -256,8 +230,8 @@
     //But this is a hackathon so it'll do for now
     NSString *myUrl = [NSString stringWithFormat: @"https://squadhub.azurewebsites.net/user/%@/%@",demofriend,newstatus];
     NSURL *url = [NSURL URLWithString:myUrl];
-    dispatch_queue_t q3 = dispatch_queue_create("label", NULL);
-    dispatch_async(q3, ^{
+    dispatch_queue_t q = dispatch_queue_create("label", NULL);
+    dispatch_async(q, ^{
         NSData *data = [NSData dataWithContentsOfURL:url];
         NSString *ret = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         dispatch_async(dispatch_get_main_queue(), ^{

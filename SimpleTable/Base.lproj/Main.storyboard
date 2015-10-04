@@ -42,15 +42,11 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J10-5g-3bb">
-                                <rect key="frame" x="284" y="53" width="30" height="28"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="freeButtons" destination="uhx-ZT-jj4" id="kPd-uy-xAh"/>
-                        <outlet property="myStatus" destination="J10-5g-3bb" id="b5j-7L-X1x"/>
                         <outlet property="tableView" destination="gYX-iE-8Ij" id="8zP-ut-Xli"/>
                     </connections>
                 </viewController>
