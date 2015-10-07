@@ -14,7 +14,7 @@ You can set your own status as "Free," "Sorta," and "Busy," and your friends can
 find out if you're nearby on campus and if you'd be down to do something; be that lunch, chillin', or
 even just studying at the library together.
 
-![alt tag](https://raw.github.com/mllee/squadhub_app/master/screenshot.jpg)
+![alt tag](https://github.com/mllee/squadhub_app/blob/master/screenshot.png)
 
 ===========================================
 ...Yeah that's pretty much this hackathon app in a nutshell. I'm quite proud of it because
