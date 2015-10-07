@@ -1,6 +1,6 @@
 # SquadHub
 It's a crappy name but give me a break, it was like 4am.
-VandyHacks Fall 15 (App)
+VandyHacks Fall 15 (iOS App)
 
 College is a unique time where we're constantly surrounded by our friends, and it'd be
 a shame to not spend that time enjoying each other's company as much as possible.
