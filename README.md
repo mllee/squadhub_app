@@ -14,12 +14,13 @@ You can set your own status as "Free," "Sorta," and "Busy," and your friends can
 find out if you're nearby on campus and if you'd be down to do something; be that lunch, chillin', or
 even just studying at the library together.
 
+===========================================
 ...Yeah that's pretty much this hackathon app in a nutshell. I'm quite proud of it because
 it's something I truly believe in: the idea that technology should connect us on a deeper level than
 stupid reposts and mildly infuriating pokes.
 
-It's quite hacky because I solo hack'd it for iOS and I've never written a line of Objective-C before
+It's fairly hacky because I solo hack'd it for iOS and I've never written a line of Objective-C before
 the start of the weekend. 
-As you might imagine, that leads to some technical... "shortcuts," but the MVP is there and quite frankly 
-I'm surprised I was able to make something fully functional in a completely foreign language/stack in 24-ish hours.
+As you might imagine, that leads to some technical... "shortcuts," but the MVP is there and  frankly 
+I'm quite happy I was able to make something fully functional in a completely foreign language/stack in 24-ish hours.
 
