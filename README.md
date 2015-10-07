@@ -14,6 +14,7 @@ You can set your own status as "Free," "Sorta," and "Busy," and your friends can
 find out if you're nearby on campus and if you'd be down to do something; be that lunch, chillin', or
 even just studying at the library together.
 
+Blue indicates Free, Yellow indicates "Sorta", Red indicates Busy, and friends that are too far away are grayed out.
 ![alt tag](https://github.com/mllee/squadhub_app/blob/master/screenshot.png)
 
 ===========================================
